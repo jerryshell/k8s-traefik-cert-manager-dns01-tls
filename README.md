@@ -1,5 +1,7 @@
 # K8s Traefik cert-manager DNS01 TLS
 
+[K8s](https://kubernetes.io/) + [Traefik](https://traefik.io/traefik/) + [cert-manager](https://cert-manager.io/) + [DNS01 TLS](https://cert-manager.io/docs/configuration/acme/dns01/)
+
 ## Install cert-manager
 
 [https://cert-manager.io/docs/installation/kubectl/](https://cert-manager.io/docs/installation/kubectl/)
