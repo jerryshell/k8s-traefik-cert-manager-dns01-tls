@@ -4,17 +4,19 @@
 
 ## Install cert-manager
 
-[https://cert-manager.io/docs/installation/kubectl/](https://cert-manager.io/docs/installation/kubectl/)
-
 ```bash
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
 ```
 
 ## Cloudflare API Token
 
-[https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/)
-
 [User Profile > API Tokens > API Tokens](https://dash.cloudflare.com/profile/api-tokens)
+
+- Permissions:
+  - Zone - DNS - Edit
+  - Zone - Zone - Read
+- Zone Resources:
+  - Include - All Zones
 
 ```yaml
 apiVersion: v1
@@ -27,7 +29,7 @@ data:
   api-token: ${API_TOKEN}
 ```
 
-`namespace: cert-manager` is very important! See [ClusterIssuer w/ Cloudflare DNS01 cannot find Secret](https://github.com/cert-manager/cert-manager/issues/263#issuecomment-1196019275)
+Note: `namespace: cert-manager` is very important! See [ClusterIssuer w/ Cloudflare DNS01 cannot find Secret](https://github.com/cert-manager/cert-manager/issues/263#issuecomment-1196019275)
 
 ## Letsencrypt Production ClusterIssuer
 
@@ -43,11 +45,11 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
-    - dns01:
-        cloudflare:
-          apiTokenSecretRef:
-            name: cloudflare-api-token-secret
-            key: api-token
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token
 ```
 
 ## Traefik https redirect middleware
