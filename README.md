@@ -52,7 +52,7 @@ spec:
               key: api-token
 ```
 
-## Traefik https redirect middleware
+## Traefik redirect-https Middleware
 
 ```yaml
 apiVersion: traefik.containo.us/v1alpha1
