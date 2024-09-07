@@ -5,7 +5,7 @@
 ## Install cert-manager
 
 ```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.15.3/cert-manager.yaml
 ```
 
 ## Cloudflare API Token
@@ -26,7 +26,7 @@ metadata:
   namespace: cert-manager
 type: Opaque
 data:
-  api-token: ${API_TOKEN}
+  api-token: ${CF_API_TOKEN}
 ```
 
 Note: `namespace: cert-manager` is very important! See [ClusterIssuer w/ Cloudflare DNS01 cannot find Secret](https://github.com/cert-manager/cert-manager/issues/263#issuecomment-1196019275)
